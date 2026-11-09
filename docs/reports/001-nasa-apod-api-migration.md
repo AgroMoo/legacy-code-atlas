@@ -3,7 +3,7 @@
 **Project:** Internet Reclaimer  
 **Mission:** 01 — NASA APOD legacy API migration and preservation trail  
 **Checked:** 2026-11-09  
-**Skill used:** Internet Reclaimer Skill, initial V0.1 draft  
+**Skill used:** Internet Reclaimer Skill V0.1 for the initial research; findings informed V0.2  
 **Review state:** REVIEW_REQUIRED  
 **Research mode:** Public-source desk research. No private systems accessed; no binaries executed; no live API request successfully validated in this research pass.
 
@@ -15,7 +15,7 @@ NASA's Astronomy Picture of the Day (APOD) service is undergoing a documented AP
 
 The NASA `nasa/apod-api` repository says its backend has been rewired to the new WordPress endpoint and describes itself as a pass-through/compatibility service. This suggests that the legacy wrapper may continue to shield existing clients during the transition period, but the public notice still gives a retirement date for the legacy service.
 
-**Important research finding:** NASA's public documentation is not fully consistent about the replacement endpoint's query parameters. The Open APIs page describes `date`, `start_date`, `end_date`, and `count`; the separate APOD Feed and API User Guide describes `page`, `per_page`, `date_from`, `date_to`, and a date-coded path. The repository's current README describes the legacy wrapper parameters. This is a material documentation conflict that should be resolved with controlled endpoint tests or clarification from the maintainers before publishing a definitive migration recipe.
+**Important research finding (refined on 2026-11-09):** The apparent parameter conflict is likely explained by two interface layers. NASA's Open APIs page and the `nasa/apod-api` compatibility wrapper describe the legacy-compatible parameter set (`date`, `start_date`, `end_date`, `count`). The APOD Feed and API User Guide describes the underlying WordPress endpoint's native filters (`page`, `per_page`, `date_from`, `date_to`) and date-coded item route. The wrapper source code shows it translating legacy `start_date`/`end_date` values into `date_from`/`date_to` before calling the WordPress endpoint. This is strong source-code evidence of an adapter layer, not proof that every documented route works as described at runtime. A controlled request test is still required.
 
 This is not evidence of an abandoned or ownerless asset. The strongest potential value is preserving a reliable migration trail, clarifying interface differences, and helping downstream developers avoid broken integrations.
 
@@ -65,7 +65,7 @@ Source: https://www.nasa.gov/nasa-brand-center/images-and-media/
 
 **I1 — The migration has preservation value.** A dated compatibility/migration guide could help maintainers of small apps, educational projects, archives, and feed readers understand which interface to use and what data fields to expect.
 
-**I2 — The highest-value contribution may be documentation reconciliation, not code recovery.** The official materials already describe a supported replacement. The unresolved issue is how the portal-level query-parameter description relates to the more detailed APOD feed guide and the compatibility wrapper.
+**I2 — The highest-value contribution may be documenting interface layers, not code recovery.** The official materials describe a legacy-compatible gateway and a native WordPress API. The compatibility source code appears to translate between their parameter conventions.
 
 **I3 — The old wrapper may provide a temporary compatibility layer.** The repository says it forwards calls to the new endpoint. This should not be interpreted as a guarantee that every old client behavior or response field is preserved after the retirement date.
 
@@ -78,7 +78,7 @@ Source: https://www.nasa.gov/nasa-brand-center/images-and-media/
 
 These descriptions may refer to different interface layers or may reflect documentation drift. The available sources do not establish which complete parameter set is supported by the replacement endpoint in every route. Do not publish a single merged parameter list as if it were confirmed.
 
-**C2 — Response-field semantics need careful mapping.** The API catalog and repository README describe `url` as the APOD post URL/permalink. The repository's implementation has also been indexed with code that assigns `url` from `hdurl` in wrapper responses. That apparent difference needs a current-code and live-response check before any client migration guide relies on it.
+**C2 — Response-field semantics need careful mapping.** The feed guide describes `url` as the APOD post URL, matching `permalink`; the indexed wrapper implementation assigns `url` from `hdurl` in its response transformation. This suggests the wrapper may preserve a legacy client expectation while the native endpoint uses a different meaning. Verify against current source and actual responses before publishing a field mapping.
 
 ## 4. Condition and technical state
 
@@ -147,7 +147,7 @@ No security vulnerability or malicious behavior was investigated or claimed in t
 
 **Do not mark this mission ACCEPTED yet.** Keep it at **REVIEW_REQUIRED**.
 
-The next validation step is a controlled, read-only comparison of:
+A follow-up source review on 2026-11-09 found that NASA's wrapper source translates legacy date-range parameters to the native WordPress filters. This narrows the documentation question but does not close runtime validation. Direct endpoint URLs could not be retrieved by the available web reader in this pass, so no HTTP status or live response schema is claimed.\n\nThe next validation step is a controlled, read-only comparison of:
 - legacy endpoint, while still available;
 - replacement JSON endpoint for a current APOD date;
 - replacement JSON endpoint for a historical APOD date;
@@ -159,13 +159,13 @@ Record request URL, response status, response schema, checked time, and any diff
 ## 11. Skill evaluation — V0.1
 
 **What worked**
-- The Skill led to canonical-source-first research.
+- The Skill led to canonical-source-first research.\n- Cross-reading the compatibility wrapper source helped distinguish legacy gateway parameters from native WordPress filters, reducing a false-positive documentation-conflict claim.
 - It prompted a rights review separate from technical value.
 - It preserved uncertainty and supported a negative/qualified outcome rather than forcing a “hidden treasure” claim.
 - Its structured output template made the findings and unknowns visible.
 
 **Gaps exposed**
-- The Skill needs a mandatory documentation-conflict procedure: compare official sources, identify interface layers, and do not merge incompatible parameter lists.
+- The Skill should require interface-layer mapping before labeling documentation differences as unresolved conflicts.
 - It needs an explicit distinction between source-code license and licenses/rights for content returned by the software.
 - It needs a hard rule distinguishing desk research from live endpoint testing.
 - It needs field-semantic comparison as part of API migration investigations.
