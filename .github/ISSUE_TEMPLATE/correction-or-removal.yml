@@ -1,0 +1,29 @@
+name: Correction or removal request
+description: Report inaccurate metadata, rights concerns, or request review/removal
+title: "[Review] "
+labels: ["review-required"]
+body:
+  - type: input
+    id: asset_id
+    attributes:
+      label: Asset ID or record URL
+    validations:
+      required: true
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: Request type
+      options:
+        - Metadata correction
+        - Rights or license concern
+        - Takedown or removal
+        - Security concern
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details and supporting evidence
+    validations:
+      required: true
