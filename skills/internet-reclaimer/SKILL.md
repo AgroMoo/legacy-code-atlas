@@ -2,7 +2,7 @@
 
 **Purpose:** Help a person and their AI assistant discover, investigate, and assess potentially overlooked digital value using a transparent, evidence-led, rights-aware workflow.
 
-This is an initial community draft. It is not a legal opinion, ownership determination, investment recommendation, security audit, or authorization to access or reuse third-party material.
+**Version:** 0.2 pilot revision (2026-11-09).\n\nThis is an evolving community draft. It is not a legal opinion, ownership determination, investment recommendation, security audit, or authorization to access or reuse third-party material.
 
 ## When to use
 
@@ -80,3 +80,65 @@ Suggest an Issue or Pull Request. Include the canonical source, evidence, value 
 ## Quality rule
 
 A good report may conclude that an asset is valuable, uncertain, historically interesting but not reusable, or not worth further work. A clear negative finding is useful. Never inflate value to make a discovery look exciting.
+
+
+## Additional validation rules — V0.2
+
+These rules were added after the first NASA APOD migration pilot.
+
+### 1. Reconcile conflicting documentation
+
+When official sources describe different parameters, fields, dates, permissions, or workflows:
+1. Link to and summarize each source separately.
+2. Record publisher, publication/update date when available, and date checked.
+3. Identify whether the sources describe different interface layers, versions, or audiences.
+4. Label the discrepancy **CONFLICT** until evidence resolves it.
+5. Do not combine incompatible sources into one definitive specification.
+6. Prefer a controlled, low-impact test or clarification from the responsible maintainer. Otherwise leave the behavior UNKNOWN.
+
+### 2. Separate code rights from content rights
+
+A repository license applies only to files and contributions covered by that license. It does not automatically license images, datasets, text, models, records, or other content returned by the software or linked from it.
+
+For mixed repositories and APIs, assess separately:
+- source code and dependencies;
+- API metadata and documentation;
+- returned text, images, audio, video, and datasets;
+- third-party embedded or linked materials;
+- trademarks, personal likeness/publicity, and endorsement restrictions.
+
+Never infer blanket reuse permission from a repository LICENSE file or public API access.
+
+### 3. Distinguish desk research from runtime verification
+
+Every report must state its research mode:
+- **Desk research:** public documentation and source inspection only.
+- **Runtime tested:** requests or tests actually executed; include date, method, sanitized request/response evidence, and limitations.
+- **Independently reproduced:** another reviewer reproduced the relevant test or finding.
+
+Never describe a documented endpoint as “working” or “verified” unless a live test was actually performed. If the research environment cannot access the endpoint, state that explicitly and preserve the test as an open task.
+
+### 4. For API migrations, compare behavior—not just URLs
+
+Where safe and authorized, compare:
+- endpoint and HTTP method;
+- authentication requirements and rate limits;
+- query parameters and date formats;
+- response status and error behavior;
+- field names, types, nullability, and semantics;
+- pagination, ordering, and default behavior;
+- media links, redirects, and content type;
+- historical records and edge cases.
+
+Do not assume a replacement endpoint is behaviorally equivalent because it serves similar content.
+
+### 5. Use review states conservatively
+
+- **QUEUED:** lead accepted for investigation, not yet researched.
+- **RUNNING:** research is in progress.
+- **REVIEW_REQUIRED:** a material question, conflict, permission issue, or independent check remains open.
+- **ACCEPTED:** the evidence package meets the project's stated review criteria; this does not mean the asset is legally cleared or recommended for reuse.
+- **REJECTED:** the lead is out of scope, unsupported, or not worth further investigation, with reasons recorded.
+- **BLOCKED:** work cannot proceed safely or lawfully without authorization or expert review.
+
+A report based only on desk research should not claim independent technical verification. A conflict in a key interface specification normally requires REVIEW_REQUIRED.
