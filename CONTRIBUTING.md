@@ -1,27 +1,47 @@
-# Contributing
+# Contributing to Internet Reclaimer
 
-Thank you for helping discover and assess historical software.
+Welcome. You do not need to be a programmer, and you do not need to know exactly what you have found. Curiosity, careful observation, domain knowledge, and honest uncertainty are valuable contributions.
 
-## Before submitting
+## Ways to contribute
 
-- Prefer the original project repository or official archive.
-- Do not submit credentials, private code, leaked data, or material obtained by bypassing access controls.
-- Do not upload source-code copies unless maintainers have explicitly approved a lawful basis.
-- Separate verified facts from inference and unknowns.
+- **Submit a lead:** a website, project, model, dataset, product, patent, archive, or other digital resource that may have overlooked value.
+- **Research:** investigate its identity, provenance, history, and context.
+- **Assess:** explain a possible technical, scientific, cultural, or practical use.
+- **Review rights and risks:** identify license evidence, ownership questions, safety issues, or restrictions.
+- **Validate reuse:** document a lawful and safe real-world use.
+- **Improve the commons:** improve the Skill, templates, taxonomy, translations, documentation, or review process.
 
-## Asset suggestions
+## Submit a discovery lead
 
-Use the **Submit an asset** issue form. Include:
-- Canonical upstream URL
-- Project name and likely language/category
-- Why it may be historically or practically useful
-- Primary-source evidence and the date checked
-- Any known license or rights uncertainty
+Open an Issue using the relevant template. Include whatever you know:
+- Name or description (a rough description is fine)
+- URL or location of the lead, if public
+- What caught your attention
+- Why it might matter today
+- How you found it and when
+- What remains unknown
 
-## Review expectations
+Partial submissions are welcome. Do not invent missing fields.
 
-A candidate is not accepted until provenance, archaeology, current value, rights, and safety have been reviewed. A second reviewer should independently check material claims.
+## Evidence standards
+
+Separate FACT, INFERENCE, UNVERIFIED, CONFLICT, and UNKNOWN. Prefer primary sources. Include the date checked. Link to original sources rather than copying their contents.
+
+## Rights and safety
+
+- Do not submit credentials, private keys, personal data, confidential information, leaked material, or private code.
+- Do not bypass access controls or download restrictions.
+- Do not upload third-party source code or datasets unless a clear lawful basis and project approval exist.
+- Publicly accessible does not mean freely reusable.
+- Do not execute untrusted code on a personal or production machine.
+- For blockchain-related discoveries, do not attempt to access, move, or claim assets. Record public evidence only.
 
 ## Pull requests
 
-Keep one logical change per PR. Explain evidence, scope, and any rights implications. Do not change an asset's rights status without citing primary-source evidence.
+Keep each PR focused. Explain what changed, link sources, state uncertainty, and identify rights or safety implications. AI-assisted contributions are welcome when the contributor checks the output, discloses material AI assistance where relevant, and remains accountable for the claims.
+
+## Review
+
+Contributions may be revised, deferred, or rejected if evidence is insufficient or risks are unresolved. A respectful correction is a contribution, not a failure.
+
+Please also read [GOVERNANCE.md](GOVERNANCE.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
