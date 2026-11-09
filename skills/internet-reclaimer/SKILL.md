@@ -2,7 +2,9 @@
 
 **Purpose:** Help a person and their AI assistant discover, investigate, and assess potentially overlooked digital value using a transparent, evidence-led, rights-aware workflow.
 
-**Version:** 0.2 pilot revision (2026-11-09).\n\nThis is an evolving community draft. It is not a legal opinion, ownership determination, investment recommendation, security audit, or authorization to access or reuse third-party material.
+**Version:** 0.2 pilot revision (2026-11-09).
+
+This is an evolving community draft. It is not a legal opinion, ownership determination, investment recommendation, security audit, or authorization to access or reuse third-party material.
 
 ## When to use
 
