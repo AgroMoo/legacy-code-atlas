@@ -1,7 +1,6 @@
 name: Submit a discovery lead
 description: Share something overlooked that may have digital value
 title: "[Discovery] "
-labels: ["discovery-lead"]
 body:
   - type: markdown
     attributes:
