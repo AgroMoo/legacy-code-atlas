@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/AgroMoo/legacy-code-atlas/blob/main/schemas/asset-card.schema.json",
+  "title": "Legacy Code Atlas Asset Card",
+  "type": "object",
+  "required": ["asset_id", "name", "source_url", "preserve_basis", "redistribute_right", "license_status", "review_state", "evidence"],
+  "properties": {
+    "asset_id": {"type": "string", "pattern": "^IR-LC-[0-9]{4}$"},
+    "name": {"type": "string", "minLength": 1},
+    "language": {"type": ["string", "null"]},
+    "category": {"type": ["string", "null"]},
+    "source_url": {"type": "string", "format": "uri"},
+    "repository_url": {"type": ["string", "null"], "format": "uri"},
+    "upstream_owner": {"type": ["string", "null"]},
+    "first_release": {"type": ["string", "null"]},
+    "last_known_activity": {"type": ["string", "null"]},
+    "preserve_basis": {"$ref": "#/$defs/rights"},
+    "redistribute_right": {"$ref": "#/$defs/rights"},
+    "license_status": {"enum": ["VERIFIED", "PARTIAL", "UNKNOWN", "RESTRICTED", "CONFLICT"]},
+    "review_state": {"enum": ["QUEUED", "RUNNING", "REVIEW_REQUIRED", "ACCEPTED", "REJECTED", "BLOCKED"]},
+    "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
+    "reviewer": {"type": ["string", "null"]},
+    "checked_date": {"type": ["string", "null"], "format": "date"}
+  },
+  "$defs": {
+    "rights": {
+      "type": "object",
+      "required": ["status", "explanation"],
+      "properties": {
+        "status": {"enum": ["VERIFIED", "PARTIAL", "UNKNOWN", "RESTRICTED", "CONFLICT"]},
+        "explanation": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["label", "source", "checked_date", "claim"],
+      "properties": {
+        "label": {"enum": ["FACT", "INFERENCE", "UNVERIFIED", "CONFLICT", "UNKNOWN"]},
+        "source": {"type": "string", "format": "uri"},
+        "checked_date": {"type": "string", "format": "date"},
+        "claim": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}
