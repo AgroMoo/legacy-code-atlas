@@ -1,0 +1,60 @@
+name: Submit a discovery lead
+description: Share something overlooked that may have digital value
+title: "[Discovery] "
+labels: ["discovery-lead"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        You do not need to know exactly what this is. Partial clues are welcome. Do not include private data, credentials, private keys, leaked content, or restricted material.
+  - type: input
+    id: name
+    attributes:
+      label: What did you find?
+      description: Name, URL, short description, or clue.
+      placeholder: "A discontinued product, old model, obscure dataset, archived project..."
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Possible category
+      options:
+        - Software and technology
+        - AI assets
+        - Blockchain and digital finance
+        - Mature or discontinued products
+        - Research, inventions, or patents
+        - Data and digital archives
+        - Creative and virtual assets
+        - Unknown / not sure
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Public source or location
+      description: Link to the original or official source if known.
+  - type: textarea
+    id: why
+    attributes:
+      label: Why might this matter?
+      description: What caught your attention? What might have changed since it was created?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: What do you know, and what is uncertain?
+      description: Separate facts, guesses, and unknowns. Add source dates if possible.
+  - type: checkboxes
+    id: safeguards
+    attributes:
+      label: Responsible submission
+      options:
+        - label: I have not included credentials, private keys, personal data, confidential or leaked material.
+          required: true
+        - label: I understand that discovery does not confer ownership or permission to reuse.
+          required: true
+        - label: I have not bypassed access controls to obtain this material.
+          required: true
