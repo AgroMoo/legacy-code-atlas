@@ -78,8 +78,8 @@ The first Skill is an initial draft for community testing, not a deployed autono
 
 - [VISION.md](VISION.md) — mission and long-term vision
 - [GOVERNANCE.md](GOVERNANCE.md) — decision-making and safeguards
-- [CONTRIBUTING.md](CONTRIBUTING.md) — how to participate
-- [docs/ASSET-TAXONOMY.md](docs/ASSET-TAXONOMY.md) — asset categories
+- [COMMUNITY-CALL.md](COMMUNITY-CALL.md) — global community invitation (English)\n- [COMMUNITY-CALL.zh-CN.md](COMMUNITY-CALL.zh-CN.md) — 全球社区招募说明（中文）\n- [CONTRIBUTING.md](CONTRIBUTING.md) — how to participate
+- [docs/ASSET-TAXONOMY.md](docs/ASSET-TAXONOMY.md) — asset categories\n- [docs/FIRST-10-DISCOVERY-MISSIONS.md](docs/FIRST-10-DISCOVERY-MISSIONS.md) — first cross-domain discovery pilot
 - [docs/COMMUNITY-ROADMAP.md](docs/COMMUNITY-ROADMAP.md) — staged plan
 - [skills/internet-reclaimer/SKILL.md](skills/internet-reclaimer/SKILL.md) — free community Skill
 - [skills/legacy-code-discovery/SKILL.md](skills/legacy-code-discovery/SKILL.md) — first specialist Skill
