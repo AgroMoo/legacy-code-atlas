@@ -1,0 +1,39 @@
+name: Submit an asset
+description: Suggest a historical software project for assessment
+title: "[Asset] "
+labels: ["asset-candidate"]
+body:
+  - type: input
+    id: project_name
+    attributes:
+      label: Project name
+    validations:
+      required: true
+  - type: input
+    id: source_url
+    attributes:
+      label: Canonical upstream URL
+      placeholder: https://github.com/owner/repository
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why might this be useful today?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Primary-source evidence and checked date
+    validations:
+      required: true
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: Rights and safety
+      options:
+        - label: I have not uploaded source code, secrets, or private data.
+          required: true
+        - label: I understand that public availability does not imply redistribution permission.
+          required: true
