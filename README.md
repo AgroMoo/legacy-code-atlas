@@ -85,3 +85,8 @@ The first Skill is an initial draft for community testing, not a deployed autono
 - [skills/legacy-code-discovery/SKILL.md](skills/legacy-code-discovery/SKILL.md) — first specialist Skill
 
 **A shared mission. A global community. A second life for forgotten value.**
+
+
+### First pilot result
+
+- [Discovery Report 001 — NASA APOD API Migration & Preservation Trail](docs/reports/001-nasa-apod-api-migration.md) — first Skill-assisted desk-research report; status REVIEW_REQUIRED.
