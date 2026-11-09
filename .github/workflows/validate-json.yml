@@ -1,0 +1,31 @@
+name: Validate asset JSON
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check jsonschema
+      - name: Validate JSON files against schema
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from jsonschema import Draft202012Validator
+          schema = json.loads(Path("schemas/asset-card.schema.json").read_text())
+          validator = Draft202012Validator(schema)
+          files = list(Path("catalog").rglob("*.json"))
+          errors = []
+          for path in files:
+              data = json.loads(path.read_text())
+              errors.extend(f"{path}: {e.message}" for e in validator.iter_errors(data))
+          if errors:
+              raise SystemExit("\n".join(errors))
+          print(f"Validated {len(files)} asset JSON files.")
+          PY
