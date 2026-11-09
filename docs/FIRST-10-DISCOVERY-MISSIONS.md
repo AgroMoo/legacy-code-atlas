@@ -122,3 +122,10 @@ A mission should not be marked “validated” unless it has:
 - at least one independent review for consequential claims.
 
 **Success is learning and responsible reuse—not finding ten things to copy.** A well-supported conclusion that an asset should not be reused is a successful research outcome.
+
+
+## Mission 01 pilot status — 2026-11-09
+
+**Status: REVIEW_REQUIRED.** The first desk-research report is available at [Discovery Report 001 — NASA APOD API Migration & Preservation Trail](reports/001-nasa-apod-api-migration.md).
+
+The research confirmed the announced migration and retirement timeline, identified official replacement feed options, and found conflicting documentation about query parameters and response-field semantics. Live endpoint behavior and independent reproduction remain unverified. Do not treat this mission as technically validated or rights-cleared.
