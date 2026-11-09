@@ -69,14 +69,14 @@ Source: https://www.nasa.gov/nasa-brand-center/images-and-media/
 
 **I3 — The old wrapper may provide a temporary compatibility layer.** The repository says it forwards calls to the new endpoint. This should not be interpreted as a guarantee that every old client behavior or response field is preserved after the retirement date.
 
-### CONFLICT
+### CONFLICT / INTERFACE-LAYER RECONCILIATION
 
-**C1 — Replacement endpoint parameter documentation differs.**
-- NASA Open APIs page describes `date` (YYYY-MM-DD), `start_date`, `end_date`, and `count`.
-- The APOD Feed and API User Guide describes `page`, `per_page`, `date_from`, `date_to` (YYMMDD), and a date-coded path.
-- The legacy repository README documents legacy-wrapper parameters such as `date`, `count`, `start_date`, and `end_date`.
+**C1 — Parameter differences are likely explained by two interface layers (runtime pending).**
+- NASA Open APIs page describes the legacy-compatible gateway parameters: `date` (YYYY-MM-DD), `start_date`, `end_date`, and `count`.
+- The APOD Feed and API User Guide describes native WordPress endpoint filters: `page`, `per_page`, `date_from`, `date_to` (YYMMDD), and a date-coded path.
+- NASA's `nasa/apod-api` wrapper source shows its code converting legacy `start_date`/`end_date` values into `date_from`/`date_to` before requesting the WordPress endpoint.
 
-These descriptions may refer to different interface layers or may reflect documentation drift. The available sources do not establish which complete parameter set is supported by the replacement endpoint in every route. Do not publish a single merged parameter list as if it were confirmed.
+**Refined assessment:** these sources are likely describing different layers rather than contradictory specifications. This explanation is supported by source inspection, but exact live behavior, route availability, and edge cases remain unverified. Keep runtime validation open.
 
 **C2 — Response-field semantics need careful mapping.** The feed guide describes `url` as the APOD post URL, matching `permalink`; the indexed wrapper implementation assigns `url` from `hdurl` in its response transformation. This suggests the wrapper may preserve a legacy client expectation while the native endpoint uses a different meaning. Verify against current source and actual responses before publishing a field mapping.
 
